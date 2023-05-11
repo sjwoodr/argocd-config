@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: blackhawks-facts
+spec:
+  generators:
+  - list:
+      elements:
+      - namespace: development
+        server: https://kubernetes.default.svc
+      - namespace: staging
+        server: https://kubernetes.default.svc
+  template:
+    metadata:
+      name: 'blackhawks-facts-{{namespace}}'
+    spec:
+      project: n9oh-project
+      source:
+        repoURL: https://github.com/sjwoodr/blackhawks-facts-k8s.git
+        targetRevision: master
+        path: '{{namespace}}'
+      destination:
+        server: '{{server}}'
+        namespace: '{{namespace}}'
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
+        automated:
+          selfHeal: true
+          prune: true
