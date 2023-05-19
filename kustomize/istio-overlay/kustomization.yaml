@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://json.schemastore.org/kustomization.json
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../base
+  - argocd/argocd.yaml
+  #- argocd/argocd-ingress.yaml
+  - argocd/argocd-vs.yaml
+  - argocd/gateway.yaml
+  - projects/n9oh-project.yaml
+  - apps/blackhawks-facts.yaml
+
+patches:
+  - path: argocd/argocd-cmd-params-cm.yaml
