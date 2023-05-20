@@ -1,0 +1,12 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: whitelist
+  namespace: argocd
+spec:
+  action: ALLOW
+  rules:
+    - when:
+        - key: request.headers[x-forwarded-for]
+          values:
+            - "HOME_IP,*" # note the trailing ',*'

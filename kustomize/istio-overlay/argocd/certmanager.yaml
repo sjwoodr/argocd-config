@@ -5,7 +5,7 @@ metadata:
   namespace: istio-system
 spec:
   acme:
-    email: sjwoodr@gmail.com
+    email: foo@gmail.com
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       # Secret resource used to store the account's private key.
