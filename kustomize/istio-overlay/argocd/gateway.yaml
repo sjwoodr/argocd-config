@@ -15,8 +15,9 @@ spec:
         - argocd.n9oh.com
         - blackhawks-facts-dev.n9oh.com
         - blackhawks-facts-stg.n9oh.com
-      tls:
-        httpsRedirect: true # sends 301 redirect for http requests
+# DO NOT ENABLE THIS when you have full encryption setup on cloudflare dns with proxy
+#     tls:
+#       httpsRedirect: true # sends 301 redirect for http requests
     - port:
         number: 443
         name: https
