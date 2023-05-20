@@ -34,10 +34,8 @@ EDIT authpolicy.yaml ---- change HOME_IP
 kubectl apply -f authpolicy.yaml
 git checkout authpolicy.yaml   # so you don't check in the IP
 
-### Get initial argocd admin password
-kubectl -n argocd get secret argocd-initial-admin-secret -o yaml | grep password: | awk -F: '{print $2}' | sed 's/ //g' | base64 -d
-
-### Ensure cert-manager is Ready
+### Install cert-manager
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.0/cert-manager.yaml
 kubectl get pods --namespace cert-manager
 
 ### Setup CloudFlare secret
@@ -62,4 +60,7 @@ git checkout certmanager.yaml  # so you don't check in your real email
 ### Create certs
 cd ~/src/argocd-config/kustomize/istio-overlay/argocd
 kubectl apply -f certs.yaml
+
+### Get initial argocd admin password
+kubectl -n argocd get secret argocd-initial-admin-secret -o yaml | grep password: | awk -F: '{print $2}' | sed 's/ //g' | base64 -d
 
