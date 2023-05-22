@@ -39,10 +39,8 @@ kubectl create ns argocd
 kubectl create ns development
 kubectl create ns staging
 kubectl label namespace default istio-injection=enabled
-kubectl label namespace argocd istio-injection=enabled
 kubectl label namespace development istio-injection=enabled
 kubectl label namespace staging istio-injection=enabled
-kubectl -n argocd rollout restart deploy/argocd-server
 ```
 
 ### Protect argocd from outside world
