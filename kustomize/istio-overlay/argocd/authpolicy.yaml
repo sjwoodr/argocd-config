@@ -2,11 +2,20 @@ apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
   name: whitelist
-  namespace: argocd
+  namespace: istio-system
 spec:
   action: ALLOW
   rules:
-    - when:
+    - to:
+      - operation:
+          hosts: ["argocd.n9oh.com"]
+      when:
         - key: request.headers[x-forwarded-for]
           values:
             - "HOME_IP,*" # note the trailing ',*'
+    - to:
+      - operation:
+          hosts: ["blackhawks-facts-dev.n9oh.com"]
+    - to:
+      - operation:
+          hosts: ["blackhawks-facts-stg.n9oh.com"]
