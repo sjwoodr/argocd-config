@@ -25,6 +25,7 @@ spec:
   # At least one of a DNS Name, URI, or IP address is required.
   dnsNames:
   - argocd.n9oh.com
+  - homeassistant.n9oh.com
   - blackhawks-facts-dev.n9oh.com
   - blackhawks-facts-stg.n9oh.com
   # Issuer references are always required.

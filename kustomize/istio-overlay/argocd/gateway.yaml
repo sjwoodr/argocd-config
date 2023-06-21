@@ -13,6 +13,7 @@ spec:
         protocol: HTTP
       hosts:
         - argocd.n9oh.com
+        - homeassistant.n9oh.com
         - blackhawks-facts-dev.n9oh.com
         - blackhawks-facts-stg.n9oh.com
 # DO NOT ENABLE THIS when you have full encryption setup on cloudflare dns with proxy
@@ -27,5 +28,6 @@ spec:
         credentialName: n9oh-com-tls # This should match the Certificate secretName
       hosts:
       - argocd.n9oh.com                # This should match a DNS name in the Certificate
+      - homeassistant.n9oh.com                # This should match a DNS name in the Certificate
       - blackhawks-facts-dev.n9oh.com  # This should match a DNS name in the Certificate
       - blackhawks-facts-stg.n9oh.com  # This should match a DNS name in the Certificate
