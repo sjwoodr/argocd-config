@@ -8,7 +8,7 @@ spec:
   rules:
     - to:
       - operation:
-          hosts: ["argocd.n9oh.com"]
+          hosts: ["argocd.n9oh.com", "homeassistant.n9oh.com"]
       when:
         - key: request.headers[x-forwarded-for]
           values:
