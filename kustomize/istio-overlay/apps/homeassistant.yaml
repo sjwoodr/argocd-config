@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: homeassistant
+  namespace: argocd
+  labels:
+    app.n9oh.com/instance: homeassistant
+spec:
+  project: n9oh-project
+  source:
+    repoURL: git@github.com:sjwoodr/homeassistant-k8s.git
+    targetRevision: main
+    path: fwd-svc
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: homeassistant
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true

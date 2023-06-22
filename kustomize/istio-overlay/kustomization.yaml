@@ -11,6 +11,7 @@ resources:
   - argocd/gateway.yaml
   - projects/n9oh-project.yaml
   - apps/blackhawks-facts.yaml
+  - apps/homeassistant.yaml
 
 patches:
   - path: argocd/argocd-cmd-params-cm.yaml
