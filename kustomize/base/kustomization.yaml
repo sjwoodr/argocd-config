@@ -3,8 +3,9 @@ kind: Kustomization
 
 namespace: argocd
 
+# was 2.7.6
 resources:
-- https://raw.githubusercontent.com/argoproj/argo-cd/v2.7.6/manifests/install.yaml
+- https://raw.githubusercontent.com/argoproj/argo-cd/v2.8.3/manifests/install.yaml
 
 #patches:
 # https://raw.githubusercontent.com/argoproj/argo-cd/v2.6.3/notifications_catalog/install.yaml
